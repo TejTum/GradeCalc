@@ -88,7 +88,7 @@ def student_grade(name):
     for val in submissions.values():
         sid, aid, percent = val.strip().split('|')
         if sid == student_id:
-            total_percent += float(percent)
+            total_percent += int(percent)
             count += 1
 
     if count == 0:
