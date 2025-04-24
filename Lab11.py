@@ -82,21 +82,24 @@ def student_grade(name):
 
     student_id = students[name]
 
-    total_percent = 0
-    count = 0
+    total_earned = 0
+    total_possible = 0
 
     for val in submissions.values():
         sid, aid, percent = val.strip().split('|')
-        if sid == student_id:
-            total_percent += int(percent)
-            count += 1
+        if sid == student_id and aid in assignments:
+            points = assignments[aid]['points']
+            earned_points = (float(percent) / 100) * points
+            total_earned += earned_points
+            total_possible += points
 
-    if count == 0:
-        print("No submissions found for this student.")
+    if total_possible == 0:
+        print("No graded assignments found for this student.")
         return
 
-    average_percent = total_percent / count
-    print(f"{(math.floor(average_percent))}%")
+    final_percent = (total_earned / total_possible) * 100
+    print(f"{round(final_percent)}%")
+
 
 
 def assignment_statistics(name):
