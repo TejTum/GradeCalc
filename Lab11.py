@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
 import os
 
-students_file = 'data/data/students.txt'
+students_file = 'data/students.txt'
 
-assignments_file = 'data/data/assignments.txt'
+assignments_file = 'data/assignments.txt'
 
-submissions_folder = 'data/data/submissions'
+submissions_folder = 'data/submissions'
 
 
 def load_students():
