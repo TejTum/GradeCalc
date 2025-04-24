@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
 import os
 
-students_file = 'data/students.txt'
+students_file = 'data/data/students.txt'
 
-assignments_file = 'data/assignments.txt'
+assignments_file = 'data/data/assignments.txt'
 
-submissions_folder = 'data/submissions'
+submissions_folder = 'data/data/submissions'
 
 
 def load_students():
@@ -130,11 +130,11 @@ def assignment_statistics(name):
         if aid == assignment_id:
             scores.append(float(percent))
 
-    print(f"Min: {min(scores)}%")
+    print(f"Min: {round(min(scores))}%")
 
     print(f"Avg: {round(sum(scores) / len(scores))}%")
 
-    print(f"Max: {max(scores)}%")
+    print(f"Max: {round(max(scores))}%")
 
 
 def assignment_graph(name):
