@@ -73,34 +73,30 @@ def load_submissions():
 
 def student_grade(name):
     students = load_students()
-
     assignments = load_assignments()
-
     submissions = load_submissions()
 
     if name not in students:
         print("Student not found")
-
         return
 
     student_id = students[name]
 
-    total_points = 0
+    total_percent = 0
+    count = 0
 
-    total_earned = 0
-
-    for key, val in submissions.items():
-
+    for val in submissions.values():
         sid, aid, percent = val.strip().split('|')
-
         if sid == student_id:
-            points = (assignments[aid]['points'])
+            total_percent += float(percent)
+            count += 1
 
-            earned = float(percent) / points
+    if count == 0:
+        print("No submissions found for this student.")
+        return
 
-            total_earned += earned
-
-    print(f"{round((total_earned))}%")
+    average_percent = total_percent / count
+    print(f"{(math.floor(average_percent))}%")
 
 
 def assignment_statistics(name):
