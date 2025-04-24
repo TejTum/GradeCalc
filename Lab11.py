@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import os
+import math
 
 students_file = 'data/students.txt'
 
@@ -132,7 +133,7 @@ def assignment_statistics(name):
 
     print(f"Min: {round(min(scores))}%")
 
-    print(f"Avg: {round(sum(scores) / len(scores))}%")
+    print(f"Avg: {math.floor(sum(scores) / len(scores))}%")
 
     print(f"Max: {round(max(scores))}%")
 
